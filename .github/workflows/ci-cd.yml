@@ -1,0 +1,34 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    - name: Install dependencies
+      run: |
+        cd backend
+        pip install -r requirements.txt
+    - name: Run tests
+      run: |
+        cd backend
+        python -m pytest tests/
+
+  build-and-deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build and push Docker images
+      run: |
+        docker build -f infra/Dockerfile.backend -t podcast-backend .
+        docker build -f infra/Dockerfile.frontend -t podcast-frontend .
+        # Push to registry (placeholder)
