@@ -86,7 +86,7 @@ podcast-ai-platform/
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/LeonardoMendesXCIX/podcast-ai-platform.git
+   git clone https://github.com/LeonardoMendesXCIX/PodCast-IA-Generativa.git
    cd podcast-ai-platform
    ```
 
