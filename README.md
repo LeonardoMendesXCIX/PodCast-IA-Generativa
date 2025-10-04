@@ -73,7 +73,6 @@ podcast-ai-platform/
 ├── .gitignore
 ├── LICENSE
 ├── README.md
-└── TODO.md
 ```
 
 ## Instalação e Execução
